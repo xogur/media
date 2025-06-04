@@ -1,11 +1,17 @@
 package com.social.media.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 //엔티티를 정의
 //SocialProfile은 DB의 테이블
 //@Entity 해당 어노테이션 덕분에 아래 클래스를 테이블로 인식
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SocialProfile {
     @Id
     // @Id는 기본키
