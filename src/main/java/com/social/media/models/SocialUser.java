@@ -3,6 +3,12 @@ package com.social.media.models;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+
+
+
+
 
 @Entity
 // 해당 클래스를 DB의 테이블로 인식
@@ -20,5 +26,19 @@ public class SocialUser {
     private SocialProfile socialProfile;
 
     @OneToMany(mappedBy = "socialUser")
+    // Post의 socialUser와 매핑
     private List<Post> posts = new ArrayList<>();
+
+
+    @ManyToMany
+    // 다대다 관계
+    //
+    @JoinTable(
+            name = "user_group",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
+    // SocialGroup을 set으로 groups라는 이름으로 생성
+    private Set<SocialGroup> groups = new HashSet<>();
+
 }
