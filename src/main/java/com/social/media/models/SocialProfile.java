@@ -31,4 +31,7 @@ public class SocialProfile {
     // 이 테이블(social_profile)에 social_user라는 외래키(FK) 컬럼을 만들어 SocialUser 엔티티의 id와 연결합니다.
     // 참조하는 엔티티 (SocialUser)의 기본키(@Id) 에 자동으로 연결한다.
     private SocialUser user;
+
+    private String description;
+
 }
