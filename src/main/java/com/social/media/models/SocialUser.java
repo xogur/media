@@ -1,6 +1,8 @@
 package com.social.media.models;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 // 해당 클래스를 DB의 테이블로 인식
@@ -16,4 +18,7 @@ public class SocialUser {
     //@JoinColumn(name = "social_profile_id")
     // 관계의 주인이 아니므로 외래키 설정을 직접 하지 않음 (주인은 SocialProfile임)
     private SocialProfile socialProfile;
+
+    @OneToMany(mappedBy = "socialUser")
+    private List<Post> posts = new ArrayList<>();
 }
