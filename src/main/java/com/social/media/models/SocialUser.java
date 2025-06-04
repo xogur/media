@@ -20,12 +20,12 @@ public class SocialUser {
     private Long id;
 
     // SocialProfile 엔티티의 user 필드에 의해 매핑된 양방향 OneToOne 관계의 주인이 아님을 의미
-    @OneToOne(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(mappedBy = "user", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.MERGE})
     //@JoinColumn(name = "social_profile_id")
     // 관계의 주인이 아니므로 외래키 설정을 직접 하지 않음 (주인은 SocialProfile임)
     private SocialProfile socialProfile;
 
-    @OneToMany(mappedBy = "socialUser")
+    @OneToMany(mappedBy = "socialUser", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     // Post의 socialUser와 매핑
     private List<Post> posts = new ArrayList<>();
 
