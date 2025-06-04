@@ -8,6 +8,9 @@ import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 
 @Entity
@@ -22,6 +25,7 @@ public class SocialGroup {
     @ManyToMany(mappedBy = "groups")
     // 다대다 관계
     // socialUsers의 groups와 매핑
+    @JsonIgnore
     private Set<SocialUser> socialUsers = new HashSet<>();
 
     @Override

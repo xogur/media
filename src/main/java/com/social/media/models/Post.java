@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 @Entity
 @Data
@@ -19,5 +22,6 @@ public class Post {
     // 여러 게시물을 한명의 유저가 가지고 있을 수 있음
     // user_id를 외래키로 지정
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private SocialUser socialUser;
 }
