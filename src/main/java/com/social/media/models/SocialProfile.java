@@ -35,6 +35,7 @@ public class SocialProfile {
     private String description;
 
     public void setSocialUser(SocialUser socialUser){
+        // 여기서 this는 해당 setSocialUser을 호출한 객체
         this.user = socialUser;
         if (user.getSocialProfile() != this)
             user.setSocialProfile(this);
